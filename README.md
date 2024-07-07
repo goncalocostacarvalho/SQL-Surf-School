@@ -23,6 +23,17 @@ Dataset used has 44 columns and 164 rows. In order to become easier to analyse, 
   <img src="https://i.ibb.co/kJBfbv9/ERD-Diagram.png" width="45%">
 </p>
 
+# Analysis 🏄
+5 analysis were made in order to correlate all the tables:
+
+ 1. To count the different surfboard type that surfers have / Understand the surfers experience
+ 2. To count the different surfboard type the dataset has based on surfers experience
+ 3. Understand which type of surfboard allows to do a certain maneuver
+     For this case maneuver chosen was straight_ahead and the occurrence of it was always
+ 4. Understand which type of surfboard allows a better performance in a specific parameter
+     I choose flotation parameter and excellent
+ 5. Understand which type of surfboard suits the best for the wave shape and wave height
+
 # Conclusions ⛵
 
 - Dataset doesn’t provide much information for beginner surfers
