@@ -20,10 +20,8 @@ How?
 Dataset used has 44 columns and 164 rows. In order to become easier to analyse, the whole dataset was split into 5 tables (surfer, surfboard, performance, maneuver and wave)
 
 <p align="center">
-  <img src="https://ibb.co/dm2rMnq.png" width="45%">
+  <img src="https://i.ibb.co/kJBfbv9/ERD-Diagram.png" width="45%">
 </p>
-
-![Project Screenshot](https://github.com/goncalocostacarvalho/SQL-Surf-School/raw/main/assets/.png)
 
 # Conclusions ⛵
 
