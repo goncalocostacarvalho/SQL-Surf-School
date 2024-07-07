@@ -3,6 +3,8 @@ USE surf;
 SELECT *
 FROM df_surf;
 
+-- Creation of different tables to do the diagram
+
 CREATE TABLE wave AS
 SELECT wave_height, wave_shape, wave_height_min, wave_height_max, wave_height_mean, wave_height_interval
 FROM df_surf;
@@ -23,6 +25,8 @@ CREATE TABLE surfboard AS
 SELECT board_adequate, board_how_many, board_length, board_nose_rocker, board_nose_shape, board_tail_rocker, board_tail_shape, board_thickness, board_type, board_volume, board_width
 FROM df_surf;
 
+-- Add primary keys and foreign keys to the different tables
+
 ALTER TABLE surfer
 ADD COLUMN surfer_id INT AUTO_INCREMENT PRIMARY KEY,
 ADD COLUMN surfboard_id INT,
@@ -42,6 +46,8 @@ ALTER TABLE performance
 ADD COLUMN surfer_id INT AUTO_INCREMENT PRIMARY KEY,
 ADD COLUMN surfboard_id INT,
 ADD CONSTRAINT fk_performance_surfer FOREIGN KEY (surfboard_id) REFERENCES surfboard(surfboard_id);
+
+-- How to drop a column that is a foreign key (next 4 queries)
 
 ALTER TABLE performance
 DROP FOREIGN KEY fk_performance_surfer;
@@ -77,6 +83,8 @@ DROP COLUMN surfer_id;
 SELECT *
 FROM manoeuvres;
 
+-- Explore surfboard and surfer table
+
 SELECT *
 FROM surfboard;
 
@@ -92,6 +100,8 @@ SELECT surfer_experience, COUNT(surfer_experience)
 FROM surfer
 GROUP BY surfer_experience;
 
+-- Correlate surfboard and surfer table
+
 SELECT board_type, surfer_experience, COUNT(board_type)
 FROM surfboard s
 JOIN surfer su
@@ -102,6 +112,8 @@ ORDER BY surfer_experience;
 SELECT board_type, COUNT(board_type)
 FROM surfboard
 GROUP BY board_type;
+
+-- Correlate surfboard and maneuver table
 
 SELECT *
 FROM manoeuvres;
@@ -136,6 +148,18 @@ ON s.surfboard_id=su.surfer_id
 GROUP BY ma.manoeuvres_03_straight_ahead, su.surfer_experience, s.board_type
 ORDER BY manoeuvres_03_straight_ahead ;
 
+SELECT manoeuvres_03_straight_ahead, surfer_experience, COUNT(surfer_experience), board_type, COUNT(board_type)
+FROM manoeuvres ma
+JOIN surfer su
+ON ma.surfer_id=su.surfer_id
+JOIN surfboard s
+ON s.surfboard_id=su.surfer_id
+GROUP BY ma.manoeuvres_03_straight_ahead, su.surfer_experience, s.board_type
+HAVING manoeuvres_03_straight_ahead = "Always" AND surfer_experience="Beginner"
+ORDER BY manoeuvres_03_straight_ahead;
+
+-- Correlate surfboard and performance table
+
 SELECT *
 FROM performance;
 
@@ -146,6 +170,13 @@ ON s.surfboard_id=p.surfer_id
 GROUP BY s.board_type, p.performance_flotation
 HAVING performance_flotation = "Excellent";
 
+SELECT board_type, performance_flotation,board_volume, COUNT(board_type)
+FROM surfboard s
+JOIN performance p
+ON s.surfboard_id=p.surfer_id
+GROUP BY s.board_type, p.performance_flotation, board_volume
+HAVING performance_flotation = "Excellent";
+
 SELECT board_type, performance_manoeuvrability, COUNT(board_type)
 FROM surfboard s
 JOIN performance p
@@ -153,6 +184,8 @@ ON s.surfboard_id=p.surfer_id
 GROUP BY s.board_type, p.performance_manoeuvrability
 HAVING performance_manoeuvrability > 0.5
 ORDER BY performance_manoeuvrability;
+
+-- Correlate surfboard and wave table
 
 SELECT *
 FROM wave;
@@ -176,4 +209,10 @@ FROM surfboard s
 JOIN wave w
 ON s.surfboard_id=w.wave_id
 GROUP BY s.board_type, w.wave_height, w.wave_shape
-HAVING board_type="Funboard";
+HAVING wave_shape="Spilling";
+
+SELECT * 
+FROM surfer;
+
+SELECT *
+FROM surfboard;
