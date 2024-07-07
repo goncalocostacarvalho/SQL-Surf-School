@@ -4,6 +4,17 @@
   <img src="https://image.cdn2.seaart.ai/static/27d4e6081cfd96941a177d87a6270834/20230807/d60b55712e29a7064d60d9877e8a6d8a.jpeg" width="50%" alt="Surf School logo">
 </p>
 
+# Context 🌊
+
+- SQL project with the the goal to provide insights for a surf school
+
+HOW?
+- Use a kaggle dataset - you can find it [here](https://www.kaggle.com/datasets/loureiro85/surfing)
+  - Brazilian dataset based on online forms answered by surfers
+
+ GOAL:
+ - Define the best board type according different parameters
+
 # Conclusions ⛵
 
 - Dataset doesn’t provide much information for beginner surfers
@@ -11,11 +22,11 @@
 - Data needs to be cleaned
 
 ### Solutions for Surf School
-1.- Focus on advanced surfers - provide different surfboards (shortboards) and advanced classes supported by data and film analysis.
+ 1. Focus on advanced surfers - provide different surfboards (shortboards) and advanced classes supported by data and film analysis.
 
-2.- Focus on beginner surfers - create a survey and gather information next to surf schools
+ 2. Focus on beginner surfers - create a survey and gather information next to surf schools
 
-3.- Mix approach - focus both on advanced and beginner surfers.
+ 3. Mix approach - focus both on advanced and beginner surfers.
 
 ### Future actions
 - Going deep on the analysis of surfboards measures
