@@ -8,12 +8,18 @@
 
 - SQL project with the the goal to provide insights for a surf school
 
-HOW?
+How?
 - Use a kaggle dataset - you can find it [here](https://www.kaggle.com/datasets/loureiro85/surfing)
   - Brazilian dataset based on online forms answered by surfers
 
- GOAL:
+ Goal:
  - Define the best board type according different parameters
+
+# ERD Diagram 🎣
+
+Dataset used has 44 columns and 164 rows. In order to become easier to analyse, the whole dataset was split into 5 tables (surfer, surfboard, performance, maneuver and wave)
+
+![Project Screenshot](https://github.com/goncalocostacarvalho/SQL-Surf-School/raw/main/assets/.png)
 
 # Conclusions ⛵
 
